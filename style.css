@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Laila:wght@300;400;500&display=swap');
+
+:root {
+    --main-color: #30638B;
+    --primary-color: #3F9AC2;
+    --secondary-color: #E3F3FB;
+    --abu: #B8B8B8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'laila', sans-serif;
+    font-weight: 400;
+    padding: 42px 52px;
+}
+.main-color{
+    color: var(--main-color);
+}
+.primary-color{
+    color: var(--primary-color);
+}
+.fw{
+    font-weight: 500;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-between {
+    display: flex;
+    align-items: center;
+    gap: 52px;
+}
+
+.search {
+    position: relative;
+}
+
+.search input {
+    border-color: rgba(128, 128, 128, 0.233);
+    padding: 10px 6px;
+    width: 343px;
+    border-radius: 4px;
+}
+
+input:focus {
+    outline: none;
+}
+
+.search button {
+    position: absolute;
+    right: 6px;
+    top: 8px;
+    border: none;
+    background-color: white;
+}
+
+button:hover {
+    cursor: pointer;
+    scale: 110%;
+    transition: 3ms;
+}
+
+button ion-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.contain {
+    margin-top: 32px;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+}
+
+.bg-contain {
+    background: url(./asset/background.jpg);
+    background-position: center;
+    filter: saturate(2);
+    background-size: cover;
+    background-repeat: repeat;
+    height: 280px;
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0px 6px 20px 0px #30638B;
+}
+
+.bg-contain ion-icon {
+    height: 28px;
+    width: 28px;
+    color: white;
+}
+
+.absolute-containt {
+    position: absolute;
+    bottom: 24px;
+    left: 34px;
+    display: grid;
+    color: white;
+}
+
+.absolute-containt h1 {
+    font-size: 70px;
+    font-weight: 400;
+    margin: -14px 0px;
+}
+
+.absolute-containt h5 {
+    letter-spacing: 1.26px;
+}
+
+.absolute-rg-containt {
+    position: absolute;
+    bottom: 24px;
+    right: 34px;
+    display: grid;
+    color: white;
+}
+
+.absolute-rg-containt {
+    text-align: end;
+}
+
+.grid-contain {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.col-1 {
+    display: grid;
+    gap: 24px;
+    grid-column: span 2 / span 2;
+    /* grid-template-rows: repeat(3, minmax(0, 1fr)); */
+}
+.flex{
+    display: flex;
+}
+.gap-12{
+    gap: 12px;
+}
+.gap-16{
+    gap: 16px;
+}
+.gap-24{
+    gap: 24px;
+}
+.gap-32{
+    gap: 32px;
+}
+.grid{
+    display: grid;
+}
+.justify-between{
+    justify-content: space-between;
+}
+.col-2 {
+    grid-column: span 4 / span 4;
+}
+.row-1 {
+    border-radius: 12px;
+    border: 2px solid var(--main-color);
+    padding: 35px 46px;
+    /* grid-row: span 2 / span 2; */
+}
+.line{
+    width: 0.75px;
+height: 176px; 
+background: var(--main-color);
+}
+.row-2{
+    border-radius: 12px;
+    border: 2px solid var(--main-color);
+    padding: 24px 32px;
+    /* grid-row: span 1 / span 1; */
+    gap: 6px;
+}
+.w-h3{
+    width: 88px;
+}
+.col-2{
+    border-radius: 12px;
+    flex-direction: column;
+    border: 2px solid var(--main-color);
+    padding: 24px 32px;
+}
+.col-2 h1{
+    font-size: 28px;
+    font-weight: 500;
+}
+.w-67{
+    width: 67px;
+}
+.day-content{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.day-content h3{
+    text-align: center;
+}
