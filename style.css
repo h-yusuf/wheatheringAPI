@@ -92,7 +92,7 @@ button ion-icon {
     position: relative;
     border-radius: 24px;
     overflow: hidden;
-    box-shadow: 0px 6px 20px 0px #30638B;
+    box-shadow: 0px 8px 18px 0px var(--main-color)
 }
 
 .bg-contain ion-icon {
@@ -160,6 +160,9 @@ button ion-icon {
 .grid{
     display: grid;
 }
+.items-center{
+    align-items: center;
+}
 .justify-between{
     justify-content: space-between;
 }
@@ -191,7 +194,8 @@ background: var(--main-color);
     border-radius: 12px;
     flex-direction: column;
     border: 2px solid var(--main-color);
-    padding: 24px 32px;
+    padding: 24px 46px;
+    margin-left: 24px;
 }
 .col-2 h1{
     font-size: 28px;
@@ -207,4 +211,20 @@ background: var(--main-color);
 }
 .day-content h3{
     text-align: center;
+}
+.line-sm{
+    width: 1px;
+height: 63px;
+background-color: var(--main-color);
+opacity: 0.5;
+}
+.chart-time{
+    font-size: 18px;
+}
+.apexcharts-data-labels{
+    border-radius: 100% !important;
+}
+li{
+    list-style: none;
+    color: var(--main-color);
 }

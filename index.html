@@ -1,128 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weateher.sh</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Laila:wght@300;400;500&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Laila:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
-<nav>
-    <div class="navbar">
-        <img src="./asset/Weather.sh.png" alt="">
+  <body>
+    <nav>
+      <div class="navbar">
+        <img src="./asset/Weather.sh.png" alt="" />
         <div class="nav-between">
-            <div class="search">
-                <input type="text" placeholder="Enter City Name">
-                <button type="button" ><ion-icon name="search-outline"></ion-icon></button>
-            </div>
-            <a href="">
-                <img src="./asset/ri_menu-2-fill.svg" alt="">
-            </a>
+          <div class="search">
+            <input type="text" id="input" placeholder="Enter City Name" aria-describedby="button-submit" />
+            <button type="button" id="button-submit">
+              <ion-icon name="search-outline"></ion-icon>
+            </button>
+          </div>
+          <a href="">
+            <img src="./asset/ri_menu-2-fill.svg" alt="" />
+          </a>
         </div>
+      </div>
+    </nav>
+    <div class="contain row">
+      <div class="bg-contain">
+        <!-- <img src="./asset/background.jpg" alt="">             -->
+        <div class="absolute-containt">
+          <ion-icon name="sunny-outline"></ion-icon>
+          <h1 class="result">25°</h1>
+          <h5 class="city">Sleman,<span>Yogyakarta</span></h5>
+        </div>
+        <div class="absolute-rg-containt">
+          <h2>06:30</h2>
+          <h5>Senin 12 <span>September </span>2023</h5>
+        </div>
+      </div>
+      <div class="grid-contain">
+        <div class="col-1">
+          <div class="row-1">
+            <div class="justify-between flex gap-32">
+              <div class="grid gap-16">
+                <div class="flex gap-16">
+                  <img src="./asset/icon-blue/humidility.svg" alt="" />
+                  <div class="gap-4">
+                    <h3 class="fw">humadity</h3>
+                    <h4 class="primary-color">25°</h4>
+                  </div>
+                </div>
+                <div class="flex gap-16">
+                  <img src="./asset/icon-blue/speed.svg" alt="" />
+                  <div class="gap-4">
+                    <h3 class="fw">speed</h3>
+                    <h4 class="primary-color">25°</h4>
+                  </div>
+                </div>
+                <div class="flex gap-16">
+                  <img src="./asset/icon-blue/sunrise.svg" alt="" />
+                  <div class="gap-4">
+                    <h3 class="fw">sunrise</h3>
+                    <h4 class="primary-color">25°</h4>
+                  </div>
+                </div>
+              </div>
+              <div class="line"></div>
+              <div class="grid gap-16">
+                <div class="flex gap-16">
+                  <img src="./asset/icon-blue/sun.svg" alt="" />
+                  <div class="gap-4">
+                    <h3 class="fw">temp</h3>
+                    <h4 class="primary-color">25°</h4>
+                  </div>
+                </div>
+                <div class="flex gap-16">
+                  <img src="./asset/icon-blue/cloud.svg" alt="" />
+                  <div class="gap-4">
+                    <h3 class="fw">cloud</h3>
+                    <h4 class="primary-color">25°</h4>
+                  </div>
+                </div>
+                <div class="flex gap-16">
+                  <img src="./asset/icon-blue/sunset.svg" alt="" />
+                  <div class="gap-4">
+                    <h3 class="fw">sunset</h3>
+                    <h4 class="primary-color">25°</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row-2 grid">
+            <div class="flex gap-16">
+              <h4 class="w-h3">Date</h4>
+              :
+              <span class="main-color">Monday 12 September 2023</span>
+            </div>
+            <div class="flex gap-16">
+              <h4 class="w-h3">City</h4>
+              :
+              <span class="main-color">Sleman, Yogyakarta</span>
+            </div>
+            <div class="flex gap-16">
+              <h4 class="w-h3">Country</h4>
+              :
+              <span class="main-color">indonesia</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-2 flex justify-between gap-16">
+          <h1>one week weather forecast</h1>
+          <div id="labels-chart" class="ml-min"></div>
+          <ul class="chart-time flex justify-between">
+            <li>
+                00:00
+            </li>
+            <li>
+                04:00
+            </li>
+            <li>
+                08:00
+            </li>
+            <li>
+                12:00
+            </li>
+            <li>
+                16:00
+            </li>
+            <li>
+                20:00
+            </li>
+            <li>
+                00:00
+            </li>
+          </ul>
+          <div class="flex items-center gap-16 justify-between">
+            <div class="day-content flex gap-16">
+              <h3 class="fw w-67">MON</h3>
+              <img src="./asset/icon-black/wind.svg" alt="" />
+              <h4 class="primary-color">25°c</h4>
+            </div>
+            <div class="line-sm"></div>
+            <div class="day-content flex gap-16">
+              <h3 class="fw w-67">TUE</h3>
+              <img src="./asset/icon-black/cloud.svg" alt="" />
+              <h4 class="primary-color">25°c</h4>
+            </div>
+            <div class="line-sm"></div>
+            <div class="day-content flex gap-16">
+              <h3 class="fw w-67">WED</h3>
+              <img src="./asset/icon-black/sun.svg" alt="" />
+              <h4 class="primary-color">25°c</h4>
+            </div>
+            <div class="line-sm"></div>
+            <div class="day-content flex gap-16">
+              <h3 class="fw w-67">THU</h3>
+              <img src="./asset/icon-black/cloud.svg" alt="" />
+              <h4 class="primary-color">25°c</h4>
+            </div>
+            <div class="line-sm"></div>
+            <div class="day-content flex gap-16">
+              <h3 class="fw w-67">FRI</h3>
+              <img src="./asset/icon-black/cloud.svg" alt="" />
+              <h4 class="primary-color">25°c</h4>
+            </div>
+            <div class="line-sm"></div>
+            <div class="day-content flex gap-16">
+              <h3 class="fw w-67">SAT</h3>
+              <img src="./asset/icon-black/cloud.svg" alt="" />
+              <h4 class="primary-color">25°c</h4>
+            </div>
+            <div class="line-sm"></div>
+            <div class="day-content flex gap-16">
+              <h3 class="fw w-67">SUN</h3>
+              <img src="./asset/icon-black/sun.svg" alt="" />
+              <h4 class="primary-color">25°c</h4>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="contain row ">
-        <div class="bg-contain">
-            <!-- <img src="./asset/background.jpg" alt="">             -->
-            <div class="absolute-containt">
-                <ion-icon  name="sunny-outline"></ion-icon>
-                <h1>25°</h1>
-                <h5>Sleman,<span>Yogyakarta</span></h5>
-            </div>
-            <div class="absolute-rg-containt">
-                <h2>06:30</h2>
-                <h5>Senin 12 <span>September </span>2023</h5>
-            </div>
-        </div>
-        <div class="grid-contain gap-24">
-            
-            <div class="col-1">
-                <div class="row-1">
-                    <div class="justify-between flex gap-32">
-                        <div class="grid gap-16">
-                            <div class="flex gap-16">
-                                <img src="./asset/icon-blue/humidility.svg" alt="">
-                                <div class="gap-4">
-                                    <h3 class="fw">humadity</h3>
-                                    <h4 class="primary-color">25°</h4>
-                                </div>
-                            </div>
-                            <div class="flex gap-16">
-                                <img src="./asset/icon-blue/speed.svg" alt="">
-                                <div class="gap-4">
-                                    <h3 class="fw">speed</h3>
-                                    <h4 class="primary-color">25°</h4>
-                                </div>
-                            </div>
-                            <div class="flex gap-16">
-                                <img src="./asset/icon-blue/sunrise.svg" alt="">
-                                <div class="gap-4">
-                                    <h3 class="fw">sunrise</h3>
-                                    <h4 class="primary-color">25°</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="line"></div>
-                        <div class="grid gap-16">
-                            <div class="flex gap-16">
-                                <img src="./asset/icon-blue/sun.svg" alt="">
-                                <div class="gap-4">
-                                    <h3 class="fw">temp</h3>
-                                    <h4 class="primary-color">25°</h4>
-                                </div>
-                            </div>
-                            <div class="flex gap-16">
-                                <img src="./asset/icon-blue/cloud.svg" alt="">
-                                <div class="gap-4">
-                                    <h3 class="fw">cloud</h3>
-                                    <h4 class="primary-color">25°</h4>
-                                </div>
-                            </div>
-                            <div class="flex gap-16">
-                                <img src="./asset/icon-blue/sunset.svg" alt="">
-                                <div class="gap-4">
-                                    <h3 class="fw">sunset</h3>
-                                    <h4 class="primary-color">25°</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row-2 grid">
-                    <div class="flex gap-16">
-                        <h4 class="w-h3">Date</h4>
-                        :
-                        <span class="main-color">Monday 12 September 2023</span>
-                    </div>
-                    <div class="flex gap-16">
-                        <h4 class="w-h3">City</h4>
-                        :
-                        <span class="main-color">Sleman, Yogyakarta</span>
-                    </div>
-                    <div class="flex gap-16">
-                        <h4 class="w-h3">Country</h4>
-                        :
-                        <span class="main-color">indonesia</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-2 flex justify-between">
-                <h1>one week weather forecast</h1>
-                <div class="flex">
-                    <div class="day-content flex gap-12">
-                        <h3 class="fw w-67">MON</h3>
-                        <img src="./asset/icon-black/wind.svg" alt="">
-                        <h4 class="primary-color">25°</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</nav>
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script></body>
-
+    <!-- <a class="weatherwidget-io" href="https://forecast7.com/en/n7d72110d34/sleman/" data-label_1="SLEMAN" data-label_2="WEATHER" data-theme="original" >SLEMAN WEATHER</a>
+<script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+</script> -->
+      <script src="script.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+  </body>
 </html>
