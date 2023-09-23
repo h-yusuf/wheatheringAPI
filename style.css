@@ -228,3 +228,16 @@ li{
     list-style: none;
     color: var(--main-color);
 }
+#colon {
+    animation: blink 1s infinite;
+  }
+  
+  @keyframes blink {
+    0%, 100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  

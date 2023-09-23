@@ -1,26 +1,136 @@
-// ApexCharts options and config
+// const searchButton = document.querySelector("#button-submit");
+// const inputKeyword = document.querySelector("#input");
+
+//  function  searchWeather() {
+//     fetch(
+//         "https://api.openweathermap.org/data/2.5/weather?q=" +
+//         inputKeyword.value +
+//         "&appid=bfc55dae938e2e19f113350baa352b75&units=metric"
+//     )
+//         .then(response => response.json())
+//         .then(response => {
+//             let temp = document.querySelector(".temp");
+//             let city = document.querySelectora(".city");
+//             let humidity = document.querySelector(".humidity");
+//             let speed = document.querySelector(".speed");
+//             let cloud = document.querySelector(".cloud");
+
+
+//             temp.innerHTML = `<span>${response.main.temp.toFixed(0)}°</span>`
+//             city.innerHTML = `${response.name}, ${response.sys.country}, ${response.weather[0].description}`
+//             humidity.innerHTML = `${response.main.humidity}%`
+//             speed.innerHTML = `${response.wind.speed} m/s`
+//             cloud.innerHTML = ` ${response.clouds.all}%`
+
+        
+//         })
+//         .catch(error => {
+//             console.error("Error fetching data:", error);
+//             let city = document.querySelector(".city");
+//             let temp = document.querySelector(".result");
+//             temp.innerHTML = "nul";
+//             city.innerHTML = "Data tidak ditemukan";
+//           });
+      
+//     inputKeyword.value = null;
+// };
+// inputKeyword.addEventListener("keydown", function (event) {
+//     if (event.key === "Enter") {
+//       searchWeather();
+//     }
+//   });
+  
+//   // Event listener untuk tombol pencarian
+//   searchButton.addEventListener("click", function () {
+//     searchWeather();
+//   });
+
 const searchButton = document.querySelector("#button-submit");
 const inputKeyword = document.querySelector("#input");
 
-searchButton.addEventListener("click", function () {
-    fetch(
-        "https://api.openweathermap.org/data/2.5/weather?q=" +
-        inputKeyword.value +
-        "&appid=bfc55dae938e2e19f113350baa352b75&units=metric"
-    )
-        .then(response => response.json())
-        .then(response => {
-            let result = document.querySelector(".result");
-            result.innerHTML = `<span>${response.main.temp.toFixed(0)}°С</span>`
-        })
-        .then(response => {
-            let result = document.querySelector(".city");
-            result.innerHTML = `<span>${response.name}, ${response.sys.country}</span>`
-        })
+function searchWeather() {
+  fetch(
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
+      inputKeyword.value +
+      "&appid=bfc55dae938e2e19f113350baa352b75&units=metric"
+  )
+    .then((response) => response.json())
+    .then((response) => {
+      let tempElements = document.querySelectorAll(".temp");
+      let cityElements = document.querySelectorAll(".city");
+      let humidityElements = document.querySelectorAll(".humidity");
+      let speedElements = document.querySelectorAll(".speed");
+      let cloudElements = document.querySelectorAll(".cloud");
 
+      // Iterasi melalui NodeList dan perbarui elemen-elemen dengan data cuaca
+      tempElements.forEach((element) => {
+        element.innerHTML = `<span>${response.main.temp.toFixed(0)}°</span>`;
+      });
 
-    inputKeyword.value = null;
+      cityElements.forEach((element) => {
+        element.innerHTML = `${response.name}, ${response.sys.country}, ${response.weather[0].description}`;
+      });
+
+      humidityElements.forEach((element) => {
+        element.innerHTML = `${response.main.humidity}%`;
+      });
+
+      speedElements.forEach((element) => {
+        element.innerHTML = `${response.wind.speed} m/s`;
+      });
+
+      cloudElements.forEach((element) => {
+        element.innerHTML = `${response.clouds.all}%`;
+      });
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error);
+      let cityElements = document.querySelectorAll(".city");
+      let tempElements = document.querySelectorAll(".result");
+
+      tempElements.forEach((element) => {
+        element.innerHTML = "nul";
+      });
+
+      cityElements.forEach((element) => {
+        element.innerHTML = "Data tidak ditemukan";
+      });
+    });
+
+  inputKeyword.value = null;
+}
+
+inputKeyword.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    searchWeather();
+  }
 });
+
+// Event listener untuk tombol pencarian
+searchButton.addEventListener("click", function () {
+  searchWeather();
+});
+
+// Create a new Date object
+function updateLocalTime() {
+    const currentDate = new Date();
+    const options = { hour: '2-digit', minute: '2-digit' };
+    const localTime = currentDate.toLocaleTimeString(undefined, options);
+  
+    // Display the local time
+    document.getElementById('local-time').textContent = `${localTime}`;
+  }
+  
+  function toggleColon() {
+    const colonElement = document.getElementById('colon');
+    colonElement.style.visibility = colonElement.style.visibility === 'visible' ? 'hidden' : 'visible';
+  }
+  // Call the function to update the time immediately
+  updateLocalTime();
+  
+  // Update the time every second (1000 milliseconds)
+  setInterval(updateLocalTime, 1000);
+// Apex Charts
 
 window.addEventListener("load", function () {
     let options = {
